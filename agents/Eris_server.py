@@ -453,6 +453,8 @@ class ERISEngine:
             "[[command:add_class,body,class-name]]\n"
             "Respond with commands at the end"
         )
+        self.fact_check_enabled = False  # default
+        self.search_enabled = False #default
         self.self_modifier = SelfModifier()
 
     def _build_prompt(self, user_input):
@@ -514,7 +516,8 @@ class ERISEngine:
         
                 prompt = f"{self.system_prompt}\n{history}\nUser: {user_input}\nERIS:"
         
-                if any(word in user_input.lower() for word in ["current", "recent", "latest", "news"]):
+                if self.search_enabled and any(word in user_input.lower() for word in ["current", "recent", "latest", "news"]):
+                    print("Web Search Enabled.");
                     with ThreadPoolExecutor(max_workers=1) as executor:
                         search_future = executor.submit(
                         self.web_search.perform_search,  
@@ -564,8 +567,17 @@ class ERISEngine:
                 ).split('ERIS:')[-1].strip()
                                         
                 response_text, commands = self._extract_commands(response_text)
-                check_confidence, _ = self.fact_checker.verify_statement(response_text)
-                final_confidence = min(check_confidence + 0.3, 1.0)
+                if self.fact_check_enabled:
+                    if any(x in user_input.lower() for x in ["is it true", "verify", "fact", "real", "accurate"]):
+                        logging.debug("[FactCheck Triggered] Verifying response confidence...")
+                        check_confidence, _ = self.fact_checker.verify_statement(response_text)
+                        final_confidence = min(check_confidence + 0.3, 1.0)
+                    else:
+                        final_confidence = 1.0
+
+                else:
+                    print("Fact Checking Disabled.");
+                    #final_confidence = 1.0  # assume full confidence if not fact-checked
 
                 # Self-modification check must come after confidence calc
                 if "[[selfmod:" in response_text:
@@ -701,7 +713,7 @@ def initialize_engine():
 # ======================
 # UTILITY FUNCTIONS
 # ======================
-# UPDATE YOUR flush_gpu_memory FUNCTION
+# 
 def flush_gpu_memory():
     if torch.cuda.is_available():
         try:

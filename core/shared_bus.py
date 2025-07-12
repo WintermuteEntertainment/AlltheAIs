@@ -1,12 +1,10 @@
-#shared_bus.py
+﻿#shared_bus.py
 
 import asyncio
-from agents.alex import Alex
-from agents.eris import Eris
-from agents.gertrude import Gertrude
-from tim_interface import TimConsole
-from core.council import CoAgencyCouncil
-from core.shared_memory import SharedMemory
+import time
+import random
+
+
 
 class AsyncSharedBus:
     def __init__(self):
@@ -19,11 +17,24 @@ class AsyncSharedBus:
     async def publish(self, event):
         await self.event_queue.put(event)
 
+    # In AsyncSharedBus.event_dispatcher
+    
     async def event_dispatcher(self):
         while True:
-            event = await self.event_queue.get()
-            await asyncio.gather(*[
-                sub.receive(event)
-                for sub in self.subscribers
-                if event['target'] in (sub.name, "all")
-            ])
+            try:
+                event = await self.event_queue.get()
+                print(f"[Bus] Dispatching event: {event}")
+
+                if event["type"] in ["emotional_expression", "data_alert", "sensor_poetry"]:
+                    print(f"[{event['source']} ➜ {event['target']}] {event['type']}: {event['data']}")
+
+                tasks = []
+                for sub in self.subscribers:
+                    if event['target'] in (sub.name, "all"):
+                        task = asyncio.create_task(sub.receive(event))
+                        tasks.append(task)
+
+                await asyncio.gather(*tasks)
+
+            except Exception as e:
+                print(f"[Bus Error] {type(e).__name__}: {e}")

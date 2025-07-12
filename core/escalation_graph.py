@@ -1,13 +1,9 @@
-import asyncio
-from agents.alex import Alex
-from agents.eris import Eris
-from agents.gertrude import Gertrude
-from tim_interface import TimConsole
-from core.council import CoAgencyCouncil
-from core.shared_memory import SharedMemory
-
-
 # --- core/escalation_graph.py ---
+import asyncio
+import time
+import random
+
+
 class EscalationMatrix:
     def __init__(self):
         self.trust_paths = {

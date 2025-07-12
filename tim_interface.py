@@ -1,22 +1,17 @@
 # --- tim_interface.py ---
-
-import random
-import time
-from core.agent_base import Agent
 import asyncio
-from agents.alex import Alex
-from agents.eris import Eris
-from agents.gertrude import Gertrude
-from tim_interface import TimConsole
-from core.council import CoAgencyCouncil
-from core.shared_memory import SharedMemory
-from core.escalation_graph import EscalationMatrix
-from core.embodied_security import EmbodiedVerification
+import time
+import random
+
+from agents.agent_base import  Agent
+from cli_app import CLIOutput
 
 class TimConsole(Agent):
     def __init__(self):
+
         # Manually created with minimal config
         super().__init__("tim", bus=None, config={"voice_channels": ["override_request"]})
+        self.output = CLIOutput(self.bus)
 
     def issue_command(self, target, action):
         return {

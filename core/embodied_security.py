@@ -1,12 +1,11 @@
 # --- core/embodied_security.py ---
 
 import asyncio
-from agents.alex import Alex
-from agents.eris import Eris
-from agents.gertrude import Gertrude
-from tim_interface import TimConsole
-from core.council import CoAgencyCouncil
-from core.shared_memory import SharedMemory
+import time
+import random
+# from council import CoAgencyCouncil
+# from escalation_graph import EscalationMatrix
+# from embodied_security import EmbodiedVerification
 
 
 class EmbodiedVerification:

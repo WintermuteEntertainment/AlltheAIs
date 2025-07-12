@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tim Case | CV &amp; Portfolio</title>
+  <link rel="stylesheet" href="Tim_Web_Home_3_files/all.min.css">
+  <style>
+    :root {
+      --primary: #1c0f2a;
+      --accent: #5a2e2e; /* Umbre tone */
+      --bg: #1c0f2a;
+      --text: #f5f5f5;
+      --gray: #ccc;
+      --nav-bg: #2a1740;
+      --hover: #38214f;
+      --flourish: #915a93;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: var(--nav-bg);
+      display: flex;
+      justify-content: center;
+      border-bottom: 1px solid #444;
+      z-index: 1000;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      padding: 1rem;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      background: var(--hover);
+    }
+
+    header {
+      padding: 2rem;
+      text-align: center;
+      background: var(--nav-bg);
+    }
+
+    section {
+      padding: 3rem 1rem;
+      max-width: 900px;
+      margin: auto;
+      text-align: justify;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+      padding-bottom: 0.25rem;
+      font-weight: 500;
+      position: relative;
+    }
+
+    h2::after {
+      content: "\2728";
+      color: var(--flourish);
+      font-size: 1.2rem;
+      position: absolute;
+      right: -1.5rem;
+      top: -0.3rem;
+    }
+
+    ul {
+      margin-top: 1rem;
+      list-style: disc;
+      padding-left: 1.5rem;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      background: #2c1c3a;
+      border-radius: 5px;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      display: block;
+    }
+
+    .portfolio-caption {
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      background: rgba(28,15,42,0.9);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--nav-bg);
+      color: var(--gray);
+      position: relative;
+    }
+
+    footer::before {
+      content: "";
+      background: url('white-mage-mark.png') no-repeat center center;
+      background-size: 60px;
+      opacity: 0.05;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+    }
+
+    .pdf-download {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      margin-top: 1rem;
+      border-radius: 4px;
+    }
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.social-links a {
+  color: var(--gray);
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: var(--accent);
+}
+
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#portfolio">Portfolio</a>
+  <a href="#writing">Writing</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<header>
+  <h1>Tim Case</h1>
+  <p>Writer, Designer, QA &amp; Game Dev Tinkerer</p>
+  <a href="Timothy_Winston_Case_CV_2025.pdf" class="pdf-download">Download PDF Resume</a>
+</header>
+
+<div class="social-links">
+  <a href="https://github.com/timothycase" target="_blank"><i class="fab fa-github"></i></a>
+  <a href="https://linkedin.com/in/timothycase" target="_blank"><i class="fab fa-linkedin"></i></a>
+  <a href="https://twitter.com/timothycase" target="_blank"><i class="fab fa-twitter"></i></a>
+  <a href="https://instagram.com/timothycase" target="_blank"><i class="fab fa-instagram"></i></a>
+</div>
+
+
+<section id="about">
+  <h2>About</h2>
+  <p>Game development professional with experience across design, 
+writing, QA, and publishing. I’ve worked on AAA titles, unreleased cult 
+classics, and personal indie projects, with a passion for merging code, 
+narrative, and art into compelling player experiences.</p>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+
+  <h3>Google Play Store – Vaco (2024)</h3>
+  <ul>
+    <li>Wrote and edited copy for the Google Play Games storefront, 
+ensuring promotional content aligned with Google's brand tone and market
+ strategies.</li>
+    <li>Curated themed collections and managed weekly merchandising rotations based on performance analytics and seasonal trends.</li>
+    <li>Collaborated cross-functionally with engineers and designers in a
+ fast-paced remote team to deliver polished updates on tight deadlines.</li>
+  </ul>
+  <br>
+
+  <h3>FQA Tester – Eidos/Square Enix (2020–2022)</h3>
+  <ul>
+    <li>Performed functional and LiveOps testing on AAA titles, working 
+directly with developers and localization teams to identify and resolve 
+critical bugs pre-release.</li>
+    <li>Contributed to launch-day readiness processes and provided real-time QA feedback on patches and content updates.</li>
+  </ul>
+  <br>
+
+  <h3>FQA Tester – Keywords, PTW (2012–2017)</h3>
+  <ul>
+    <li>Executed manual test plans and exploratory testing for a wide 
+range of platforms and genres, supporting multiple projects 
+simultaneously.</li>
+    <li>Helped maintain consistency and completeness in bug reports using industry-standard tools including Jira and Testrail.</li>
+  </ul>
+</section>
+
+<section id="projects">
+  <h2>Games &amp; Projects</h2>
+  <ul>
+    <li>PowerWash Simulator (Square Enix, 2022)</li>
+    <li>Life is Strange: Before the Storm (2017)</li>
+    <li>Avengers (Marvel/Square Enix/Crystal Dynamics, 2020)</li>
+    <li>Sick Bricks (Spin Master, 2015)</li>
+    <li>Batman / Walking Dead / GoT / Minecraft (Telltale Series, 2014-2017))</li>
+    <li>Arkham Nights 2 (Warner Bros., 2015</li>
+    <li>Star Wars: First Assault (Lucasfilm, 2012)</li>
+  </ul>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <ul>
+    <li>Unity, HTML/CSS/JS, Python, C#, SQLite</li>
+    <li>2D Art, UI/UX, Photoshop, 3ds Max, Procreate</li>
+    <li>Game Design, QA, Jira, Confluence, Testrail</li>
+  </ul>
+</section>
+
+<section id="portfolio">
+  <h2>Art Portfolio</h2>
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <img src="portfolio/snake-sketch.jpg" alt="Snake Tattoo Sketch">
+      <div class="portfolio-caption">Snake Tattoo Sketch (2025)</div>
+    </div>
+    <div class="portfolio-item">
+      <img src="portfolio/ui-mockup.jpg" alt="Game UI Mockup">
+      <div class="portfolio-caption">UI Mockup (2024)</div>
+    </div>
+  </div>
+</section>
+
+<section id="writing">
+  <h2>Writing</h2>
+  <ul>
+    <li><a href="https://timothycase.net/">Creative Writing Portfolio</a></li>
+    <li><a href="https://timcase.info/space-gnome-scripts">Space Gnome Scripts &amp; Barksheet</a></li>
+    <li><a href="https://timothycase.files.wordpress.com/2016/06/eggshell-2014.pdf">An Eggshell Breaking from Within (Poetry)</a></li>
+  </ul>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:tim@timcase.info">tim@timcase.info</a></p>
+  <p>Phone: 514.572.3307</p>
+</section>
+
+<footer>
+  <p>© 2025 Tim Case. Site design with minimalism, magic, and a +1 to wisdom.</p>
+</footer>
+
+
+</body></html>

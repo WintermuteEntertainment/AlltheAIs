@@ -11,7 +11,7 @@ from gtts import gTTS
 import os
 
 # === Configuration ===
-MODEL_PATH = r"A:\gertrude_phi2_finetune\final_model\model\Gertrude-fixed.gguf"
+MODEL_PATH = r"A:\gertrude_phi2_finetune\gguf_out\Gertrude-fixed.gguf"
 PORT = 5000
 MAX_TOKENS = 256
 
@@ -32,7 +32,7 @@ def _corsify_response(response):
 
 # === Load GGUF model ===
 print("🚗 Loading Gertrude GGUF model...")
-llm = Llama(model_path=r"A:\gertrude_phi2_finetune\final_model\model\gertrude_refactored_llama_cpp.py", n_ctx=2048, n_threads=8, n_gpu_layers=35)
+llm = Llama(model_path=r"A:\gertrude_phi2_finetune\gguf_out\Gertrude-fixed.gguf", n_ctx=2048, n_threads=8, n_gpu_layers=35)
 print("✅ Model loaded.")
 
 # === Audio ===

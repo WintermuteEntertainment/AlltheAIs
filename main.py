@@ -1,13 +1,21 @@
-
+#main.py
 import asyncio
-from agents.alex import Alex
-from agents.eris import Eris
-from agents.gertrude import Gertrude
-from tim_interface import TimConsole
-from core.council import CoAgencyCouncil
-from core.shared_memory import SharedMemory
+import json
+import signal
+import sys
+
+from agents.agent_base import Agent
+
+from core.shared_bus import AsyncSharedBus
 from core.escalation_graph import EscalationMatrix
-from core.embodied_security import EmbodiedVerification
+from core.council import CoAgencyCouncil
+from memory.shared_memory import SharedMemory
+
+from agents.alex_cli_adapter import Alex
+from agents.eris_cli_adapter import Eris
+from agents.gertrude_cli_adapter import Gertrude
+from agents.tim_console_cli import TimConsoleCLI
+
 
 config = {
     "alex": {"voice_channels": ["emotional_expression", "mediation_request", "environment_poetry"], "cannot_act_on": ["physical_env"]},
@@ -21,9 +29,9 @@ matrix = EscalationMatrix()
 memory = SharedMemory()
 
 alex = Alex("alex", bus, config, escalation_matrix=matrix, shared_memory=memory)
-eris = Eris("eris", bus, config, escalation_matrix=matrix, shared_memory=memory)
-gertrude = Gertrude("gertrude", bus, config, escalation_matrix=matrix, shared_memory=memory)
-tim = TimConsole()
+eris = Eris.model  # If you're using a wrapper, extract model if needed
+gertrude = Gertrude.model
+tim = TimConsoleCLI()  # If you're trying to use the CLI interface for Tim
 
 council = CoAgencyCouncil([alex, eris, gertrude])
 
